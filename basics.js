@@ -4,6 +4,8 @@ function randomTal(max) {
 
 function checkNum(n) {
   if (n === finNum) {
+    floatingText.textContent = "TILLYKKE!!!";
+    floatingText.classList.add("show");
     return "TILLYKKE! " + n + " ER KORREKT!";
   } else if (n < finNum) {
     return "DET ER HØJERE END " + n;
@@ -13,8 +15,9 @@ function checkNum(n) {
 }
 
 const finNum = randomTal(100);
-const enterNum = document.getElementById("input");
+const enterNum = document.querySelector("#input");
 const number = document.querySelector(".ranNum");
+const floatingText = document.querySelector("#floatingText");
 
 function parse() {
   let guess = parseInt(document.querySelector("#input").value);

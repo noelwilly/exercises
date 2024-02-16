@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gættespil</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            font-size: 16px;
+            margin: 10px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1></h1>
+    <button id="tooLo">Too Low</button>
+    <button id="tooHi">Too High</button>
+
+    <!-- <h1>Gæt et tal mellem 1 og 100</h1>
+    <p id="output"></p>
+    <button onclick="userFeedback('m')">Mindre</button>
+    <button onclick="userFeedback('s')">Større</button>
+    <button onclick="userFeedback('=')">Lig med</button> -->
+
+    <script>
+        let loNum = 0;
+        let hiNum = 100;
+        let computerGuessText = document.querySelector("h1");
+
+        document.querySelector("#tooLo").addEventListener("click", tooLo);
+        document.querySelector("#tooHi").addEventListener("click", tooHi);
+        computerGuesses();
+
+        function computerGuesses() {
+            numberOfGuesses++;
+            computerGuess = Math.floor(loNum + (hiNum - loNum) / 2);
+            computerGuessText.textContent = computerGuess;
+            console.log("numberOfGuesses", numberOfGuesses);
+        }
+
+        function tooLo() {
+            console.log("LO");
+            loNum = computerGuess;
+            computerGuesses();
+        }
+
+        function tooHi() {
+            console.log("HI");
+            hiNum = computerGuess;
+            computerGuesses();
+        }
+        // let lowerBound = 1;
+        // let upperBound = 100;
+        // let guess;
+
+        // function startGame() {
+        //     guess = Math.floor((lowerBound + upperBound) / 2);
+        //     document.getElementById("output").innerHTML = "Gætter computeren: " + guess;
+        // }
+
+        // function userFeedback(feedback) {
+        //     if (feedback === "m") {
+        //         upperBound = guess - 1;
+        //     } else if (feedback === "s") {
+        //         lowerBound = guess + 1;
+        //     } else if (feedback === "=") {
+        //         document.getElementById("output").innerHTML = "Computeren gættede rigtigt! Tillykke!";
+        //         return;
+        //     }
+
+        //     guess = Math.floor((lowerBound + upperBound) / 2);
+        //     document.getElementById("output").innerHTML = "Gætter computeren: " + guess;
+        // }
+
+        // startGame();
+    </script>
+
+</body>
+
+</html>
